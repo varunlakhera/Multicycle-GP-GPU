@@ -1,0 +1,14 @@
+9105         // Addr 00: CONST R1, 5
+52F1         // Addr 01: MUL R2, R15, R1   (R2 = T_ID * 5. Values: 0, 5, 10, 15)
+9364         // Addr 02: CONST R3, 100
+343F         // Addr 03: ADD R4, R3, R15   (R4 = 100 + T_ID. Addresses: 100, 101, 102, 103)
+8042         // Addr 04: STR rs:R4, rt:R2  (STORE #1: Addr=R4, Data=R2)
+7540         // Addr 05: LDR rd:R5, rs:R4  (LOAD: Dest=R5, Addr=R4)
+960A         // Addr 06: CONST R6, 10
+3756         // Addr 07: ADD R7, R5, R6    (R7 = Loaded Data + 10)
+9802         // Addr 08: CONST R8, 2
+5978         // Addr 09: MUL R9, R7, R8    (R9 = Final Data. Values: 20, 30, 40, 50)
+9A96         // Addr 0A: CONST R10, 150
+3BAF         // Addr 0B: ADD R11, R10, R15 (R11 = 150 + T_ID. Addresses: 150, 151, 152, 153)
+80B9         // Addr 0C: STR rs:R11, rt:R9 (STORE #2: Addr=R11, Data=R9)
+FFFF         // Addr 0D: RET
