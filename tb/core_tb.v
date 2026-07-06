@@ -29,6 +29,7 @@ data_mem_write_valid, data_mem_write_datas, data_mem_write_addrs);
 
 
 reg [15:0] program_memory [255:0];
+integer k;
 
 
 always #5 clk = ~clk;
@@ -42,6 +43,12 @@ always @(posedge clk) begin
 
         #10;
         program_mem_read_ready = 0;
+    end
+
+    for(k = 0; k < 4; k = k + 1) begin
+        //reply ready one cycle after a valid request
+        data_mem_write_ready[k] <= data_mem_write_valid[k]; 
+        data_mem_read_ready[k] <= data_mem_read_valid[k]; 
     end
 end
 
