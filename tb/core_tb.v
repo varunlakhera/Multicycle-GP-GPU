@@ -63,7 +63,7 @@ initial begin
     $dumpvars(0,core_tb);
     $readmemh("core.hex", program_memory);
 
-    clk = 0; reset = 1; start = 0; block_id = 8'd2; \
+    clk = 0; reset = 1; start = 0; block_id = 8'd2; //
     thread_count = 3'd3; // to check if thread 3 is at rest or no
     program_mem_read_ready = 0; program_mem_read_data = 0;
     data_mem_read_ready = 0; data_mem_read_datas = 0; data_mem_write_ready = 0;
