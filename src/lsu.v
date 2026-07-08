@@ -12,8 +12,6 @@ output reg mem_read_valid, mem_write_valid
 localparam  IDLE = 2'b00, REQUESTING = 2'b01, WAITING = 2'b10, DONE = 2'b11;
 localparam  REQUEST = 3'b011, UPDATE = 3'b110;
 
-//$display("mem_read_addr = %d, mem_write_addr = %d, mem_write_data = %d, lsu_state = %b, lsu_out = %d, mem_read_valid = %b, mem_write_valid = %b", 
-  ///       mem_read_addr, mem_write_addr, mem_write_data, lsu_state, lsu_out, mem_read_valid, mem_write_valid);
 always @(posedge clk) begin
     if(reset) begin
         lsu_state <= IDLE;
