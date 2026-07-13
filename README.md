@@ -51,3 +51,6 @@ The execution pipeline relies on the synchronization of multiple state machines 
 This GP-GPU follows a Single Instruction, Multiple Threads (SIMT) execution model. 
 - **Thread Offsets (Software-Level):** Instead of hardware-level base + offset memory addressing, global thread addresses are calculated in software. Because the `regfile.v` initializes `R[15]` with the thread's hardware ID upon reset, assembly programs can use the ALU to calculate unique memory addresses before issuing memory operations.
 - **Control Flow & The "Dictator" Thread:** To handle control flow without execution masking or a divergence stack, Thread 0 acts as the "Dictator Thread". Thread 0 drives the shared Program Counter (`new_pc`) for the entire block, meaning divergent threads are forcefully synchronized to Thread 0's execution path.
+
+## Acknowledgements
+This GPU was built with the inspiration and reference from the [tiny-GPU](https://github.com/adam-maj/tiny-gpu) by Adam Majmudar.
